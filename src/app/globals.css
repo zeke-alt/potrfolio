@@ -1,26 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-black: #0a0a0a;
+  --color-white: #f0eee6;
+  --color-lime: #c8f500;
+  --color-grid: #1a1a1a;
+  --color-muted: #555555;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 3rem;
+  --text-display: clamp(3.5rem, 10vw, 8rem);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  /* padding: 0; */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  body { padding: 2rem; }
+  .drawer { padding: 2rem 4rem 2rem 4rem}
+}
+
+@media (min-width: 1024px) {
+  body { padding: 2.5rem; }
+  .drawer { padding: 2rem 4rem 2rem 4rem}
+}
+
+/* Grid texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(
+      var(--color-grid) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Everything sits above the grid */
+#root,
+main,
+section,
+header,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.accent {
+  color: var(--color-lime);
+}
+
+/* Borders — sharp only */
+.border-sharp {
+  border: 1px solid var(--color-grid);
+}
+
+.border-sharp-accent {
+  border: 1px solid var(--color-lime);
+}
+
+/* Scroll reveal base state */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-clip {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.reveal-clip.visible {
+  clip-path: inset(0 0% 0 0);
+}
+
+/* Drawer — hard slide, no fade, no blur */
+.drawer-reveal {
+  animation: drawer-slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes drawer-slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* Projects bento grid — asymmetric showcase */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "p1 p1 p1 p1 p2 p2"
+    "p1 p1 p1 p1 p2 p2"
+    "p3 p3 p3 p4 p4 p4"
+    "p5 p5 p5 p6 p6 p6"
+    "p5 p5 p5 p6 p6 p6";
+  gap: 1px;
+  background: var(--color-grid);
+}
+
+/* Projects bento grid — asymmetric showcase */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "p1 p1 p1 p1 p2 p2"
+    "p1 p1 p1 p1 p2 p2"
+    "p1 p1 p1 p1 p3 p3"
+    "p4 p4 p5 p5 p6 p6";
+  gap: 1px;
+  background: var(--color-grid);
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 320px;
+    grid-template-areas:
+      "p1"
+      "p1"
+      "p2"
+      "p3"
+      "p4"
+      "p5"
+      "p6";
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "wins"
+      "stack"
+      "location"
+      "school"
+      "building"
+      "focus";
+  }
+}
+
+/* Grid item areas */
+.bento-wins { grid-area: wins; }
+.bento-stack { grid-area: stack; }
+.bento-location { grid-area: location; }
+.bento-school { grid-area: school; }
+.bento-building { grid-area: building; }
+.bento-focus { grid-area: focus; }
+
+/* Stagger children */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+.stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+.stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+.stagger.visible > *:nth-child(4) { transition-delay: 0.3s; }
+.stagger.visible > *:nth-child(5) { transition-delay: 0.4s; }
+.stagger.visible > *:nth-child(6) { transition-delay: 0.5s; }
+
+.stagger.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Typewriter cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: var(--color-lime);
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-lime);
+  color: var(--color-black);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-grid);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-lime);
+}
+
+/* Background display headers */
+.text-stroke {
+  -webkit-text-stroke: 1px var(--color-grid);
+  color: rgba(255, 255, 255, 0.06);
+}
+
+/* Modal Reveal */
+@keyframes modalClipIn {
+  from { clip-path: inset(100% 0 0 0); transform: translateY(20px); }
+  to { clip-path: inset(0 0 0 0); transform: translateY(0); }
+}
+
+.modal-reveal {
+  animation: modalClipIn 0.6s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Drawer slide-in from bottom */
+@keyframes drawerIn {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+.drawer-reveal {
+  animation: drawerIn 0.45s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Mobile carousel — hide scrollbar while keeping scroll functionality */
+.carousel-hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.carousel-hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Full-bleed — breaks element out of any padded container to 100vw */
+.full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
