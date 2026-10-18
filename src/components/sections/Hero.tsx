@@ -17,7 +17,7 @@ export default function Hero() {
 
           <div className="flex items-center gap-6">
             <a
-              href="/cv.pdf"
+              href="/Shalom_Atiba_Resume (1).pdf"
               download="Atiba_Shalom_CV.pdf"
               className="group flex items-center gap-2 mono text-xs uppercase tracking-widest text-[var(--color-muted)] hover:text-[var(--color-lime)] transition-colors duration-200"
             >

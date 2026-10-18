@@ -29,10 +29,10 @@ export default function About() {
   }, []);
 
   const stats = [
-    { label: "Based in", value: "Ibadan, Nigeria" },
-    { label: "Education", value: "OAU — 200L CS" },
-    { label: "Experience", value: "~3 Years" },
-    { label: "Hackathons", value: "--" },
+    { label: "Based in", value: "Nigeria" },
+    { label: "Education", value: "OAU, 300L CS MATH" },
+    { label: "Experience", value: "4 Years" },
+    { label: "Hackathons", value: "02" },
     { label: "Focus", value: "Frontend web dev" },
     { label: "Status", value: "Open to Work" },
   ];
@@ -61,7 +61,7 @@ export default function About() {
           ABOUT
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
-          {/* Bio — left */}
+          {/* Bio - left */}
           <div className="reveal flex flex-col justify-center lg:col-span-2">
             <h2 className="font-bold mb-10 leading-tight text-[clamp(5rem,4vw,3.5rem)]">
               I build things that
@@ -72,21 +72,22 @@ export default function About() {
             </h2>
             <div className="flex flex-col gap-6 text-justify max-w-[1400px] mx-auto w-full">
               <p className="text-base lg:text-lg leading-relaxed text-[var(--color-muted)]">
-                I'm a fullstack engineer — but frontend is where my heart is. Not just because it's what people see, but because it's where logic meets feel, and that intersection is where I do my best work. I care about the gap between working and working well, and I've spent a lot of time learning to close it.
+                I care about the gap between working and working well, and I've spent years learning to close it. <br/>
+                I'm a fullstack engineer, but the interface is where I do my best work: the detail in a transition, the weight of a typeface, the way a layout breathes. It's where logic meets feel. I've built across the stack, from databases and APIs to AI integrations, but I always come back to what people actually touch.
               </p>
               <p className="text-base lg:text-lg leading-relaxed text-[var(--color-muted)]">
-                I've built across the stack — databases, APIs, AI integrations — but I always come back to the interface. The detail in a transition, the weight of a typeface, the way a layout breathes. That stuff matters to me as much as the code behind it.
+                I'm studying Computer Science at OAU, and I build like I've been at it far longer, because I have. I've shipped for clients, contributed to teams like [NACOS OAU / GDG OAU], and taken ideas from a room to a working product. [One concrete win here: what it was, what it did.]
               </p>
               <p className="text-base lg:text-lg leading-relaxed text-[var(--color-muted)]">
-                Shipped things that won, things that scaled, things that taught me what I didn't know yet. Built for clients, contributed to teams, entered rooms with ideas and left with products. Studying CS at OAU, but building like I've been at it for years — because I have.
+                Outside the editor, I play guitar and basketball, and I write about the things that move me. I'm drawn to Japanese art for how it commits to pattern and intention, and I try to bring that same commitment to my interfaces.
               </p>
               <p className="text-base lg:text-lg leading-relaxed text-[var(--color-muted)]">
-                Outside the editor: guitar, basketball, and writing about the things that actually move me. I've always been drawn to Japanese art too — there's something about the way it commits to pattern and intention that I find genuinely fascinating. I think good taste in one thing bleeds into everything else. At the end of the day, the goal is simple — put a suit of armor around everyone.
+                My goal is simple: build the solutions Africa is still waiting on, and put a suit of armor around everyone who uses them.
               </p>
             </div>
           </div>
 
-          {/* Stats — right - Bento Grid */}
+          {/* Stats - right - Bento Grid */}
           <div className="mt-12 lg:mt-0 flex items-center justify-center lg:col-span-1">
             <div className="stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 w-full">
               {stats.map((stat, i) => (

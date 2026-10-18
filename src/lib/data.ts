@@ -4,9 +4,9 @@ export const meta = {
   fullName: "Atiba Shalom Oluyinka",
   role: ["Frontend Engineer", "Fullstack Developer", "UI Engineer"],
   status: "Open to opportunities",
-  location: "Ile-Ife, Nigeria",
+  location: "Nigeria",
   school: "Obafemi Awolowo University",
-  bio: "I'm Shalom — a frontend-focused fullstack engineer based in Ile-Ife, Nigeria. I build things that work and look like they mean it. Currently a 200-level CS student at OAU, shipping production-grade apps between lectures. I've won hackathons, contributed to platforms used by real people, and I'm still just getting started.",
+  bio: "I'm Shalom - a frontend-focused fullstack engineer based in Nigeria. I build things that work and look like they mean it. Currently a 200-level CS student at OAU, shipping production-grade apps between lectures. I've won hackathons, contributed to platforms used by real people, and I'm still just getting started.",
   email: "shalomatiba90@gmail.com",
   phone: "+2348068574631",
   github: "https://https://zeke-alt",
@@ -45,8 +45,8 @@ export const projects = [
       "Bayse Markets API",
     ],
     category: "Hackathon",
-    award: "NONE YET",
-    url: "https://github.com/zeke-alt/ifa-quant",
+    award: "1st place + People's Choice Award, BWAIOAU X Bayse Markets hackathon",
+    url: "https://ifaquant.vercel.app",
     image: "/ifaquant.png",
     year: "2025",
   },
@@ -60,7 +60,7 @@ export const projects = [
     category: "Volunteering",
     url: "",
     image: "/nacosoau.png",
-    year: "2025",
+    year: "2026",
   },
   {
     id: "03",
@@ -71,9 +71,9 @@ export const projects = [
     role: "Frontend Engineer",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vertex AI"],
     category: "Hackathon",
-    url: "https://verta-frontend.vercel.app/",
+    url: "https://verta-two.vercel.app/",
     image: "/verta.png",
-    year: "2025",
+    year: "2026",
   },
   {
     id: "04",
@@ -118,9 +118,9 @@ export const bento = [
   {
     id: "wins",
     label: "Hackathon Wins",
-    value: "--",
+    value: "02",
     sub: "__",
-    url: "", // live link to the winning project, if deployed
+    url: "https://ifaquant.vercel.app", // live link to the winning project, if deployed
     linkLabel: "View Live",
   },
   {
@@ -142,7 +142,7 @@ export const bento = [
   {
     id: "location",
     label: "Based in",
-    value: "Ile-Ife",
+    value: "",
     sub: "Nigeria 🇳🇬",
     url: "",
     linkLabel: "",
@@ -150,7 +150,7 @@ export const bento = [
   {
     id: "building",
     label: "Building",
-    value: "IfáQuant + notevault",
+    value: "IfáQuant + crunchTIME",
     sub: "AI tools for African contexts",
     url: "", // live link to whichever's deployed right now
     linkLabel: "View Live",

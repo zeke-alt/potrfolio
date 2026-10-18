@@ -14,8 +14,8 @@ const techMeta: Record<string, TechMeta> = {
   "Tailwind CSS": { slug: "tailwindcss", color: "38BDF8" },
   "Node.js": { slug: "nodedotjs", color: "5FA04E" },
   "Google Cloud": { slug: "googlecloud", color: "4285F4" },
-  "Vertex AI": { initials: "VX", color: "4285F4" },
-  "Gemini API": { initials: "GM", color: "8E75B2" },
+  // "Vertex AI": { initials: "VX", color: "4285F4" },
+  "Gemini API": { slug: "googlegemini", color: "8E75B2" },
   "Git": { slug: "git", color: "F05032" },
 };
 
